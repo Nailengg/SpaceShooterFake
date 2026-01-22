@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2644547560307521520}
   - component: {fileID: 6117452275888987326}
-  - component: {fileID: 6072572732687556406}
   m_Layer: 0
   m_Name: Short-Lazer-Ship
   m_TagString: Untagged
@@ -170,15 +169,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6072572732687556406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6351763056101547979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50395454511898440a685403c5858b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
