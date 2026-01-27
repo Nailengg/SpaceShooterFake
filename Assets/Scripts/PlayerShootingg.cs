@@ -8,9 +8,11 @@ public class PlayerShootingg : MonoBehaviour
     public GameObject sideBulletPrefab;
 
     [Header("Fire Points")]
-    public Transform firePointCenter;
     public Transform firePointLeft;
     public Transform firePointRight;
+
+    [Header("Center Bullet Offset")]
+    public Vector3 bulletOffset;
 
     [Header("Fire Rate")]
     public float leftMouseInterval;
@@ -61,7 +63,7 @@ public class PlayerShootingg : MonoBehaviour
 
     void ShootCenterBullet()
     {
-        Instantiate(centerBulletPrefab, firePointCenter.position, firePointCenter.rotation);
+        Instantiate(centerBulletPrefab, transform.position + bulletOffset, transform.rotation);
     }
 
     void UpdateCenterSkillUI()
