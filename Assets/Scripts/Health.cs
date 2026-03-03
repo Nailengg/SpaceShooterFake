@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
 public class Health : MonoBehaviour
 {
     public GameObject explosionPrefab;
-    public int defaultHealthPoint = 3;
+    public int defaultHealthPoint;
+
+    public System.Action onDead;  
 
     private int healthPoint;
     private SpriteRenderer spriteRenderer;
@@ -14,7 +15,6 @@ public class Health : MonoBehaviour
     {
         healthPoint = defaultHealthPoint;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     public void TakeDamage(int damage)
@@ -54,7 +54,8 @@ public class Health : MonoBehaviour
             Destroy(explosion, 1f);
         }
 
+        onDead?.Invoke(); 
+
         Destroy(gameObject);
     }
-    
 }
