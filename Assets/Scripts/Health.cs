@@ -4,17 +4,21 @@ using System.Collections;
 public class Health : MonoBehaviour
 {
     public GameObject explosionPrefab;
-    public int defaultHealthPoint;
+    public int defaultHealthPoint = 100;
 
-    public System.Action onDead;  
+    public System.Action onDead;
+    public System.Action onHealthChanged;
 
-    private int healthPoint;
+    public int healthPoint;
+
     private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         healthPoint = defaultHealthPoint;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        onHealthChanged?.Invoke();   // cập nhật health bar khi start
     }
 
     public void TakeDamage(int damage)
@@ -22,6 +26,8 @@ public class Health : MonoBehaviour
         if (healthPoint <= 0) return;
 
         healthPoint -= damage;
+
+        onHealthChanged?.Invoke();   // cập nhật health bar
 
         StartCoroutine(FlashEffect());
 
@@ -54,7 +60,7 @@ public class Health : MonoBehaviour
             Destroy(explosion, 1f);
         }
 
-        onDead?.Invoke(); 
+        onDead?.Invoke();
 
         Destroy(gameObject);
     }
